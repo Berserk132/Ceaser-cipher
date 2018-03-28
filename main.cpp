@@ -1,5 +1,5 @@
 // FCI – Programming 1 – 2018 - Assignment 2
-// Program Name: Ceaser_Cipher.cpp
+// Program Name: Employee_Fees.cpp
 // Last Modification Date: 25/02/2018
 // Author1 and ID and Group: 20170021 G1
 // Author2 and ID and Group: 20170003 G1
@@ -8,43 +8,80 @@
 
 
 
-
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
-    string result="",message;
-    int s,choice;
-    cout<<"please enter a message: ";
-    getline(cin,message);
-    cout<< "Ahlan ya user ua habibi"<<endl<< "What do you like to do today?"<<endl;
-    cout<<"Choose 1 to encrypt or 2 to Descrypt";
+    string employee_name,portal,choice;
+    float hour_pay=16.78,addition_hours,withheld=(0.06+0.05+0.14),salary=hour_pay*40;
+    cout<< "Please Press Start !!! : " ;
     cin>>choice;
-    if(choice==1){
+    cout<<endl;
+
+
+
+
+    while(choice=="start"){
+    cout<<"Please Enter Your name : " ;
+    cin>>employee_name;
+    cout<<endl;
+
+
+    cout<<"Your Weekly Salary Before withheld is  : " <<salary<<endl;
+    cout<<endl;
+
+    cout<<"Your Weekly Salary After withheld is  : " << (salary*withheld)-10<<endl;
+    cout<<endl;
+
+
+
+        cout<<"Please Enter Number of hours : ";
+        cin>>addition_hours;
         cout<<endl;
-        cout<< "-------------------------"<<endl;
-        cout<<"please enter shifts number: ";
-        cin>>s;
-        cout<<endl<<"--------------------------"<<endl;
-        for (int i=0;i<message.size();i++){
-            if((char)message[i]>='a' && (char)message[i]<='z'){
-                result+='a'+(((char)message[i]-'a'+s)%26);}
-            else if((char)message[i]>='A' && (char)message[i]<='Z'){
-                result+='A'+(((char)message[i]-'A'+s)%26);}}
-        cout<<"Your ceaser cipher is : "<<result;}
-    if(choice==2){
+
+        addition_hours=addition_hours*25.17;
+        salary=(salary*withheld-10)+addition_hours;
+
+        cout<<"Your Salary After Adding additional hours is : " << salary<<endl;
         cout<<endl;
-        cout<< "-------------------------"<<endl;
-        cout<<"please enter shifts number: ";
-        cin>>s;
+
+        cout<< "Do you have three or more dependents : ";
+        cin>>portal;
         cout<<endl;
-        cout<<"--------------------------"<<endl;
-        for (int i=0;i<message.size();i++){
-            if((char)message[i]>='a' && (char)message[i]<='z'){
-                result+=((((char)message[i] - s - 'a' + 26) % 26) + 'a');}
-            else if((char)message[i]>='A' && (char)message[i]<='Z'){
-                result+=((((char)message[i] - s - 'A' + 26) % 26) + 'A');}}
-         cout<<"Your ceaser cipher is : "<<result;}
-   cout<<endl;
-    return 0;
+
+        if (portal=="yes"){
+            cout<< "Your new Salary is : " << salary-35;
+            cout<<endl;
+        }
+
+        if(portal=="no"){
+            cout<< "Your salary is : " <<salary;
+            cout<< "\n";
+        }
+
+        cout<< "Do you want to calculate again : " ;
+        cin>>choice;
+        cout<<endl;
     }
+
+    cout<<endl;
+
+    if (choice=="no"){
+        cout<< "Bye Bye !!!!! ";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
